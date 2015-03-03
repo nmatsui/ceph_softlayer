@@ -1,0 +1,7 @@
+- name: create /etc/hosts file
+  lineinfile: dest=/etc/hosts regexp='^{{ item }}'
+              line='{{ item }} {{ hostvars[item].ansible_hostname }}'
+              state=present
+  when: hostvars[item].ansible_eth0.ipv4.address is defined
+  with_items: groups['all']
+

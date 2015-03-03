@@ -1,0 +1,15 @@
+- name: check .ssh dir
+  file: path=/home/ceph/.ssh state=directory owner=ceph group=ceph mode=0755
+
+- name: check id_rsa
+  stat: path=/home/ceph/.ssh/id_rsa
+  register: id_rsa
+  changed_when: false
+
+- name: copy id_rsa
+  shell: cp /root/.ssh/id_rsa /home/ceph/.ssh/id_rsa
+  when: not id_rsa.stat.exists
+
+- name: chmod id_rsa
+  file: path=/home/ceph/.ssh/id_rsa owner=ceph group=ceph mode=0600
+  when: not id_rsa.stat.exists

@@ -1,0 +1,15 @@
+- name: deny password authentication
+  lineinfile: dest="/etc/ssh/sshd_config"
+              regexp="^PasswordAuthentication"
+              insertafter="#PasswordAuthentication"
+              line="PasswordAuthentication no"
+
+- name: deny GSSAPIAuthentication
+  lineinfile: dest="/etc/ssh/sshd_config"
+              regexp="^GSSAPIAuthentication"
+              insertafter="#GSSAPIAuthentication"
+              line="GSSAPIAuthentication no"
+
+- name: restart sshd
+  service: name="ssh" state="restarted"
+

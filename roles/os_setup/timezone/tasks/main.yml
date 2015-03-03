@@ -1,0 +1,6 @@
+- name: cp zonefile
+  shell: cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+- name: change timezone
+  lineinfile: dest=/etc/timezone regexp="." line="Asia/Tokyo"
+

@@ -1,0 +1,4 @@
+- hosts: client
+  sudo: yes
+  roles:
+    - os_setup/ssh_private_key

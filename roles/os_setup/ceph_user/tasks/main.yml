@@ -1,0 +1,5 @@
+- name: create ceph user
+  user: name=ceph password={{ password }} shell=/bin/bash state=present append=yes groups=sudo
+
+- name: create ceph to sudoers.d
+  copy: src=sudoers.ceph dest=/etc/sudoers.d/ceph owner=root group=root mode=0440

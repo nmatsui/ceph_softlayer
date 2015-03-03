@@ -1,0 +1,11 @@
+- hosts: all
+  sudo: yes
+  vars:
+    # created with: `openssl passwd -salt ceph -1 ceph`
+    password: $1$ceph$f5q5M/83oIDxXQV5.rZr0.
+  roles:
+    - os_setup/sshd
+    - os_setup/timezone
+    - os_setup/hosts
+    - os_setup/ceph_user
+    - os_setup/ssh_authorized_keys

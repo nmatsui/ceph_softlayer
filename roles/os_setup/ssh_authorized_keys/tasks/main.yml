@@ -1,0 +1,15 @@
+- name: check .ssh dir
+  file: path=/home/ceph/.ssh state=directory owner=ceph group=ceph mode=0755
+
+- name: check authorized_keys
+  stat: path=/home/ceph/.ssh/authorized_keys
+  register: authorized_keys
+  changed_when: false
+
+- name: copy authorized keys
+  shell: cp /root/.ssh/authorized_keys /home/ceph/.ssh/authorized_keys
+  when: not authorized_keys.stat.exists
+
+- name: chmod authorized_keys
+  file: path=/home/ceph/.ssh/authorized_keys owner=ceph group=ceph mode=0600
+  when: not authorized_keys.stat.exists
