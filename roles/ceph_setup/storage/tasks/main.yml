@@ -1,0 +1,7 @@
+- name: prepare storage
+  shell: ceph-deploy osd prepare {{ storage_disks }}
+  remote_user: ceph
+
+- name: activate storage
+  shell: ceph-deploy osd activate {{ storage_disks }}
+  remote_user: ceph

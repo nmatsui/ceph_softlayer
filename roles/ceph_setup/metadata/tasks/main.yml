@@ -1,0 +1,15 @@
+- name: sleep 30sec
+  shell: sleep 30
+  remote_user: ceph
+
+- name: gather keyring
+  shell: ceph-deploy --overwrite-conf admin {{ client_node }} {{ storage_nodes }}
+  remote_user: ceph
+
+- name: create metadata
+  shell: ceph-deploy mds create {{ storage_nodes }}
+  remote_user: ceph
+
+- name: chmod keyring
+  file: path=/etc/ceph/ceph.client.admin.keyring owner=root group=root mode=0644
+  remote_user: ceph

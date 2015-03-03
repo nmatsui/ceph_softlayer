@@ -4,3 +4,4 @@
     - ceph-deploy
     - ceph-common
     - ceph-mds
+    - ceph-fs-common

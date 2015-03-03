@@ -1,0 +1,3 @@
+- name: create monitor
+  shell: ceph-deploy mon create-initial
+  remote_user: ceph

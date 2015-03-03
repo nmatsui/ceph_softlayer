@@ -6,3 +6,8 @@
 
 [client]
 10.90.33.212
+
+[client:vars]
+client_node=client
+storage_nodes=ceph01 ceph02 ceph03
+storage_disks=ceph01:sdb2:/dev/sdb1 ceph02:sdb2:/dev/sdb1 ceph03:sdb2:/dev/sdb1

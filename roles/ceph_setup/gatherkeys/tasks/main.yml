@@ -1,0 +1,6 @@
+- name: sleep 30sec
+  shell: sleep 30
+
+- name: gather keys
+  shell: ceph-deploy gatherkeys {{ storage_nodes }}
+  remote_user: ceph

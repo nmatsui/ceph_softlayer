@@ -3,3 +3,9 @@
   roles:
     - os_setup/ssh_private_key
     - package_setup/ceph
+    - ceph_setup/configure
+    - ceph_setup/install
+    - ceph_setup/monitor
+    - ceph_setup/gatherkeys
+    - ceph_setup/storage
+    - ceph_setup/metadata
