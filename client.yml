@@ -2,3 +2,4 @@
   sudo: yes
   roles:
     - os_setup/ssh_private_key
+    - package_setup/ceph

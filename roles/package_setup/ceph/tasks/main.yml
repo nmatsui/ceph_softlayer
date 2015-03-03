@@ -1,0 +1,6 @@
+- name: install ceph package
+  apt: name={{ item }} update_cache=yes state=present
+  with_items:
+    - ceph-deploy
+    - ceph-common
+    - ceph-mds

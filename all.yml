@@ -9,3 +9,4 @@
     - os_setup/hosts
     - os_setup/ceph_user
     - os_setup/ssh_authorized_keys
+    - package_setup/update
