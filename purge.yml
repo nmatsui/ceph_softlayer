@@ -1,0 +1,4 @@
+- hosts: client
+  sudo: yes
+  roles:
+    - ceph_setup/purge

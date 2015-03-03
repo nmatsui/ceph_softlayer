@@ -1,0 +1,11 @@
+- name: purge ceph
+  shell: ceph-deploy purge {{ storage_nodes }}
+  remote_user: ceph
+
+- name: purge keys
+  shell: ceph-deploy forgetkeys
+  remote_user: ceph
+
+- name: purge data
+  shell: ceph-deploy purgedata {{ storage_nodes }}
+  remote_user: ceph
