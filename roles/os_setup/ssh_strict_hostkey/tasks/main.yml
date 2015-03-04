@@ -1,0 +1,5 @@
+- name: StrictHostKeyChecking no
+  lineinfile: dest=/etc/ssh/ssh_config
+              regexp='^StrictHostKeyChecking'
+              insertafter='#   StrictHostKeyChecking'
+              line='StrictHostKeyChecking no'
