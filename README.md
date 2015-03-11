@@ -37,7 +37,7 @@ You have to create a client node and three ceph cluster nodes like below:
 
 2) Install ansible to client node
 
-`root@client:~# apt-get install python-dev python-pip -y`
+`root@client:~# apt-get install python-dev python-pip -y`  
 `root@client:~# pip install ansible`
 
 3) make ssh key on client node
@@ -46,9 +46,9 @@ You have to create a client node and three ceph cluster nodes like below:
 
  4) copy public key to all nodes
 
-`root@client:~# ssh-copy-id root@<public IP addr of ceph01 node>`
-`root@client:~# ssh-copy-id root@<public IP addr of ceph02 node>`
-`root@client:~# ssh-copy-id root@<public IP addr of ceph03 node>`
+`root@client:~# ssh-copy-id root@<public IP addr of ceph01 node>`  
+`root@client:~# ssh-copy-id root@<public IP addr of ceph02 node>`  
+`root@client:~# ssh-copy-id root@<public IP addr of ceph03 node>`  
 `root@client:~# ssh-copy-id root@<public IP addr of client node>`
 
 5) fdisk /dev/sdb on ceph01, ceph02 and ceph03 node
@@ -82,15 +82,15 @@ storage_disks=ceph01:sdb2:/dev/sdb1 ceph02:sdb2:/dev/sdb1 ceph03:sdb2:/dev/sdb1
 
 ### Mount ceph cluster as NAS using CEPH FS
 
-`root@client:~# ceph auth get-key client.admin > /etc/ceph/admin.key`
+`root@client:~# ceph auth get-key client.admin > /etc/ceph/admin.key`  
 `root@client:~# mount -t ceph ceph01:6789:/ /mnt/ -o name=admin,secretfile=/etc/ceph/admin.key`
 
 ### Mount ceph cluster as Block Device using RBD
 
-`root@client:~# rbd create <image name> --size <Size(MB)>`
-`root@client:~# rbd map <image name>`
-`root@client:~# fdisk /dev/rbd1`
-`root@client:~# mkfs.ext4 /dev/rbd1`
+`root@client:~# rbd create <image name> --size <Size(MB)>`  
+`root@client:~# rbd map <image name>`  
+`root@client:~# fdisk /dev/rbd1`  
+`root@client:~# mkfs.ext4 /dev/rbd1`  
 `root@client:~# mount /dev/rbd1 /mnt`
 
 ## License
