@@ -11,6 +11,12 @@ This Ansible playbook setup Ceph v0.80.7(Firefly) Cluster on SoftLayer baremetal
 
 You have to create a client node and three ceph cluster nodes like below:
 
+![fig1](https://raw.githubusercontent.com/wiki/nmatsui/ceph_softlayer/images/fig1.png)
+
+You can place some ceph nodes to another datacenter like below:
+
+![fig2](https://raw.githubusercontent.com/wiki/nmatsui/ceph_softlayer/images/fig2.png)
+
 ### Client Node
 
 * Virtual Server
@@ -25,7 +31,6 @@ You have to create a client node and three ceph cluster nodes like below:
   * Upgrade NIC to 1Gbps
   * Add second disk (/dev/sdb)
 * hostname : **ceph01**, **ceph02**, **ceph03**
-
 
 ## Usage
 
@@ -62,13 +67,13 @@ You have to make two partitions(/dev/sdb1, /dev/sdb2)
 
 ```text:servers
 [all]
-10.WWW.WWW.WWW
-10.XXX.XXX.XXX
-10.YYY.YYY.YYY
-10.ZZZ.ZZZ.ZZZ
+10.W.W.W
+10.X.X.X
+10.Y.Y.Y
+10.Z.Z.Z
 
 [client]
-10.WWW.WWW.WWW
+10.W.W.W
 
 [client:vars]
 client_node=client
