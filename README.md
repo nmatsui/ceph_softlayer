@@ -1,4 +1,4 @@
-ceph_sl
+ceph_softlayer
 ======
 
 This [Ansible](http://www.ansible.com) playbooks create [Ceph](http://ceph.com/) Cluster on [SoftLayer](http://www.softlayer.com/).
@@ -20,16 +20,14 @@ You can place some ceph nodes to another datacenter like below:
 ### Client Node
 
 * Virtual Server
-  * Ubuntu 14.04 64bit
-  * Upgrade NIC to 1Gbps
+  * **Ubuntu 14.04 64bit**
 * hostname : **client**
 
 ### Ceph Cluster Node
 
 * Baremetal Server
-  * Ubuntu 14.04 64bit
-  * Upgrade NIC to 1Gbps
-  * Add second disk (/dev/sdb)
+  * **Ubuntu 14.04 64bit**
+  * **Add second disk (/dev/sdb)**
 * hostname : **ceph01**, **ceph02**, **ceph03**
 
 ## Usage
